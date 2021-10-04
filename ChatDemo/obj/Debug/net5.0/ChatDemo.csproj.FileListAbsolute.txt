@@ -34,7 +34,6 @@ C:\Users\bartek\source\repos\ChatDemo\ChatDemo\obj\Debug\net5.0\ChatDemo.TagHelp
 C:\Users\bartek\source\repos\ChatDemo\ChatDemo\obj\Debug\net5.0\ChatDemo.TagHelpers.output.cache
 C:\Users\bartek\source\repos\ChatDemo\ChatDemo\obj\Debug\net5.0\ChatDemo.RazorCoreGenerate.cache
 C:\Users\bartek\source\repos\ChatDemo\ChatDemo\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
-C:\Users\bartek\source\repos\ChatDemo\ChatDemo\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
 C:\Users\bartek\source\repos\ChatDemo\ChatDemo\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\bartek\source\repos\ChatDemo\ChatDemo\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\bartek\source\repos\ChatDemo\ChatDemo\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
@@ -77,3 +76,4 @@ C:\Users\bartek\source\repos\ChatDemo\ChatDemo\bin\Debug\net5.0\runtimes\win\lib
 C:\Users\bartek\source\repos\ChatDemo\ChatDemo\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\bartek\source\repos\ChatDemo\ChatDemo\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
 C:\Users\bartek\source\repos\ChatDemo\ChatDemo\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
+C:\Users\bartek\source\repos\ChatDemo\ChatDemo\obj\Debug\net5.0\Razor\Views\Shared\_LoginPartial.cshtml.g.cs

@@ -1,5 +1,6 @@
 using ChatDemo.Entities;
 using ChatDemo.Infrastructure;
+using ChatDemo.Validation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,19 +28,24 @@ namespace ChatDemo
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddSingleton<AppIdentityErrorDescriber>();
+
             services.AddDbContext<AppDbContext>(options => {
                 options.UseSqlServer(Configuration.GetConnectionString("Default"));
             })
-                .AddIdentity<AppUser, IdentityRole>(options =>
-                {
-                    options.User.RequireUniqueEmail = true;
-                    options.User.AllowedUserNameCharacters = "_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-                    options.Password.RequiredLength = 8;
-                    options.Password.RequireUppercase = true;
-                    options.Password.RequireLowercase = true;
-                    options.Password.RequireDigit = true;
-                    options.Password.RequireNonAlphanumeric = true;
-                })
+            .AddIdentity<AppUser, IdentityRole>(options =>
+            {
+                options.User.RequireUniqueEmail = true;
+                options.User.AllowedUserNameCharacters = "_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+                options.Password.RequiredLength = 8;
+                options.Password.RequireUppercase = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireDigit = true;
+                options.Password.RequireNonAlphanumeric = true;
+            })
+            .AddErrorDescriber<AppIdentityErrorDescriber>()
+            .AddUserValidator<AppUserValidator<AppUser>>()
+            .AddPasswordValidator<AppPasswordValidator<AppUser>>()
             .AddEntityFrameworkStores<AppDbContext>()
             .AddDefaultTokenProviders();
 
