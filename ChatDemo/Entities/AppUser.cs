@@ -35,5 +35,7 @@ namespace ChatDemo.Entities
                 return friends;
             }
         }
+
+        public ICollection<Chat> Chats { get; set; }
     }
 }
