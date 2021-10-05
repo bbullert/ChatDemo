@@ -59,13 +59,50 @@ html {
 }
 
 body {
-  /* Margin bottom by footer height */
-  margin-bottom: 60px;
+  
 }
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99;
+}
+
+.container-wrapper {
+    display: flex;
+    margin-top: 57px;
+    height: calc(100vh - 57px);
+}
+
+.container-side {
+    width: 300px;
+    border-left: 1px solid #dee2e6;
+    box-shadow: -.25rem 0 .75rem rgba(0, 0, 0, .05);
+}
+
+.container-side ul {
+    list-style: none;
+    padding-left: 24px;
+}
+
+.container-side i {
+    width: 8px;
+    height: 8px;
+    margin-right: 6px;
+    background: rgba(0, 0, 0, .2);
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.container-side i.online {
+    background: green;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
   width: 100%;
   white-space: nowrap;
-  line-height: 60px; /* Vertically center the text there */
+  line-height: 60px;
 }
