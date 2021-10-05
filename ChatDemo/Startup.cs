@@ -31,6 +31,7 @@ namespace ChatDemo
             services.AddSingleton<AppIdentityErrorDescriber>();
             services.AddScoped<IAppUserRepository, AppUserRepository>();
             services.AddScoped<IChatRepository, ChatRepository>();
+            services.AddScoped<ChatHub>();
 
             services.AddDbContext<AppDbContext>(options => {
                 options.UseSqlServer(Configuration.GetConnectionString("Default"));
@@ -82,6 +83,7 @@ namespace ChatDemo
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapHub<ChatHub>("/chatHub");
             });
         }
     }
