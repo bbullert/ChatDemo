@@ -41,15 +41,17 @@
         </main>
         @if (User.Identity.IsAuthenticated)
         {
-        <nav class="navbar container-side align-items-lg-start">
-            @await Component.InvokeAsync("ChatList")
-        </nav>
+            <nav class="navbar container-side align-items-lg-start">
+                @await Component.InvokeAsync("ChatList")
+            </nav>
         }
     </div>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/microsoft/signalr/dist/browser/signalr.js"></script>
     <script src="~/js/friendsController.js" asp-append-version="true"></script>
+    <script src="~/js/chatController.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
