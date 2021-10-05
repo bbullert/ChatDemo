@@ -77,3 +77,8 @@ C:\Users\bartek\source\repos\ChatDemo\ChatDemo\bin\Debug\net5.0\runtimes\win\lib
 C:\Users\bartek\source\repos\ChatDemo\ChatDemo\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
 C:\Users\bartek\source\repos\ChatDemo\ChatDemo\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
 C:\Users\bartek\source\repos\ChatDemo\ChatDemo\obj\Debug\net5.0\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
+C:\Users\bartek\source\repos\ChatDemo\ChatDemo\obj\Debug\net5.0\Razor\Views\Friends\Index.cshtml.g.cs
+C:\Users\bartek\source\repos\ChatDemo\ChatDemo\obj\Debug\net5.0\Razor\Views\Friends\Requests.cshtml.g.cs
+C:\Users\bartek\source\repos\ChatDemo\ChatDemo\obj\Debug\net5.0\Razor\Views\Friends\Search.cshtml.g.cs
+C:\Users\bartek\source\repos\ChatDemo\ChatDemo\obj\Debug\net5.0\Razor\Views\Friends\_FriendsNavPartial.cshtml.g.cs
+C:\Users\bartek\source\repos\ChatDemo\ChatDemo\obj\Debug\net5.0\Razor\Views\Friends\_SearchUserResultsPartial.cshtml.g.cs

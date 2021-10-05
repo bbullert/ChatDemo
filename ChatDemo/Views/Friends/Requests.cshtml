@@ -1,0 +1,59 @@
+﻿
+@using ChatDemo.Entities;
+
+@model ICollection<FriendRequest>
+
+@{
+    ViewData["Title"] = "Friend requests";
+}
+
+<div class="container">
+    <div class="row g-3 mt-3">
+        <div class="col px-0">
+            @await Html.PartialAsync("_FriendsNavPartial", new { ActiveIndex = 1 })
+        </div>
+    </div>
+</div>
+<hr style="width: 100%; margin-bottom: 0;" />
+<div id="friends-container-wrapper" style="overflow-y: auto; height: 100%;">
+    <div class="container" style="height: 100%;">
+        <div class="row" style="margin-top: auto; height: 100%;">
+            <div class="col d-flex px-0 py-3">
+                <div id="friends-container" class="d-flex flex-fill flex-column">
+                    @if (Model.Count == 0)
+                    {
+                        <div class="row my-2 text-center">
+                            <p class="col col-form-label">You have no friend requests</p>
+                        </div>
+                    }
+                    else
+                    {
+                        @foreach (var result in Model)
+                        {
+                            <form method="post" onsubmit="onFriendAction(event)">
+                                <div class="row my-2">
+                                    <input type="hidden" name="userId" value="@result.Sender.Id" />
+                                    <label class="col col-form-label">
+                                        <b>@result.Sender</b>
+                                    </label>
+                                    <div id="user-single-result" class="col-auto">
+                                        <button asp-action="AcceptFriendRequest"
+                                                type="submit"
+                                                class="btn btn-success">
+                                            Accept
+                                        </button>
+                                        <button asp-action="DeclineFriendRequest"
+                                                type="submit"
+                                                class="btn btn-danger">
+                                            Decline
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

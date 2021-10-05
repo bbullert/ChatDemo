@@ -1,0 +1,54 @@
+﻿
+@model ICollection<UserSearchResult>
+
+@if (Model.Count == 0)
+{
+    <div class="row my-2 text-center">
+        <p class="col col-form-label">No users have been found</p>
+    </div>
+}
+else
+{
+    @foreach (var result in Model)
+    {
+        <form id="user-search-form" method="post" onsubmit="onFriendAction(event)">
+            <div class="row my-2">
+                <input type="hidden" name="userId" value="@result.User.Id" />
+                <label class="col col-form-label">
+                    <b>@result.User.UserName</b>
+                </label>
+                <div id="user-single-result" class="col-auto">
+                    @if (result.FriendRequestStatus == FriendRequestStatus.Accepted)
+                    {
+                        <label class="col col-form-label">You are friends</label>
+                    }
+                    else if (result.FriendRequestStatus == FriendRequestStatus.Requested)
+                    {
+                        <label class="col col-form-label">You've sent a friend request</label>
+                    }
+                    else if (result.FriendRequestStatus == FriendRequestStatus.Received)
+                    {
+                        <button asp-action="AcceptFriendRequest"
+                                type="submit"
+                                class="btn btn-success">
+                            Accept
+                        </button>
+                        <button asp-action="DeclineFriendRequest"
+                                type="submit"
+                                class="btn btn-danger">
+                            Decline
+                        </button>
+                    }
+                    else
+                    {
+                        <button asp-action="SendFriendRequest"
+                                type="submit"
+                                class="btn btn-primary">
+                            Add friend
+                        </button>
+                    }
+                </div>
+            </div>
+        </form>
+    }
+}

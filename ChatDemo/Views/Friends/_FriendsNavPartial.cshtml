@@ -1,0 +1,12 @@
+﻿
+<ul class="nav nav-pills">
+    <li class="nav-item">
+        <a class="nav-link @(Model.ActiveIndex == 0 ? "active" : "")" asp-action="Index">Your friends</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link @(Model.ActiveIndex == 1 ? "active" : "")" asp-action="Requests">Friend requests</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link @(Model.ActiveIndex == 2 ? "active" : "")" asp-action="Search">Find friends</a>
+    </li>
+</ul>

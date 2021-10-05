@@ -1,0 +1,38 @@
+﻿
+@model UserSearchViewModel
+
+@{
+    ViewData["Title"] = "Find friends";
+}
+
+<div class="container">
+    <div class="row g-3 mt-3">
+        <div class="col px-0">
+            @await Html.PartialAsync("_FriendsNavPartial", new { ActiveIndex = 2 })
+        </div>
+        <form asp-action="Search"
+              method="post"
+              onsubmit="onFriendAction(event)">
+            <div class="row">
+                <div class="col">
+                    <input name="value" asp-for="Value" class="form-control" />
+                </div>
+                <div class="col-auto px-0">
+                    <button type="submit" class="btn btn-primary">Find</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<hr style="width: 100%; margin-bottom: 0;" />
+<div style="overflow-y: auto; height: 100%;">
+    <div class="container" style="height: 100%;">
+        <div class="row" style="margin-top: auto; height: 100%;">
+            <div class="col d-flex px-0 py-3">
+                <div id="user-search-results" class="d-flex flex-fill flex-column">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
