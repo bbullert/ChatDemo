@@ -29,6 +29,7 @@ namespace ChatDemo
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddSingleton<AppIdentityErrorDescriber>();
+            services.AddScoped<IAppUserRepository, AppUserRepository>();
 
             services.AddDbContext<AppDbContext>(options => {
                 options.UseSqlServer(Configuration.GetConnectionString("Default"));
@@ -43,13 +44,13 @@ namespace ChatDemo
                 options.Password.RequireDigit = true;
                 options.Password.RequireNonAlphanumeric = true;
             })
+            .AddEntityFrameworkStores<AppDbContext>()
             .AddErrorDescriber<AppIdentityErrorDescriber>()
             .AddUserValidator<AppUserValidator<AppUser>>()
             .AddPasswordValidator<AppPasswordValidator<AppUser>>()
-            .AddEntityFrameworkStores<AppDbContext>()
             .AddDefaultTokenProviders();
 
-            services.AddScoped<IAppUserRepository, AppUserRepository>();
+            services.AddSignalR();
 
             services.AddControllersWithViews();
         }

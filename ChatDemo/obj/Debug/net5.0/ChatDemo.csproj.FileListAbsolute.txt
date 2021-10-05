@@ -82,3 +82,4 @@ C:\Users\bartek\source\repos\ChatDemo\ChatDemo\obj\Debug\net5.0\Razor\Views\Frie
 C:\Users\bartek\source\repos\ChatDemo\ChatDemo\obj\Debug\net5.0\Razor\Views\Friends\Search.cshtml.g.cs
 C:\Users\bartek\source\repos\ChatDemo\ChatDemo\obj\Debug\net5.0\Razor\Views\Friends\_FriendsNavPartial.cshtml.g.cs
 C:\Users\bartek\source\repos\ChatDemo\ChatDemo\obj\Debug\net5.0\Razor\Views\Friends\_SearchUserResultsPartial.cshtml.g.cs
+C:\Users\bartek\source\repos\ChatDemo\ChatDemo\bin\Debug\net5.0\libman.json
