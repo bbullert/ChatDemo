@@ -11,6 +11,7 @@ namespace ChatDemo.Entities
     {
         public AppUser()
         {
+            Chats = new List<Chat>();
             SentFriendRequests = new List<FriendRequest>();
             ReceivedFriendRequests = new List<FriendRequest>();
         }
