@@ -23,6 +23,7 @@ namespace ChatDemo.Infrastructure
         public AppUser GetUserById(string userId)
         {
             return context.Users
+                .Include(x => x.Chats)
                 .Include(x => x.SentFriendRequests)
                 .ThenInclude(x => x.Receiver)
                 .Include(x => x.ReceivedFriendRequests)
