@@ -1,0 +1,29 @@
+﻿
+@using ChatDemo.Entities
+@using System.Security.Claims
+
+@model ICollection<Message>
+
+@{
+    string signInUserName = User.FindFirstValue(ClaimTypes.Name);
+}
+
+@foreach (var message in Model)
+{
+    var color = signInUserName == message.Author.UserName ?
+        "alert-primary" : "alert-dark";
+    var alignment = signInUserName == message.Author.UserName ?
+        "justify-content-end" : null;
+
+    <div class="message-body">
+        <div class="d-flex @alignment">
+            <div class="d-inline-flex flex-column mb-0 mt-3 alert @color">
+                <strong>@message.Author.UserName</strong>
+                <p class="m-0">@message.Text</p>
+            </div>
+        </div>
+        <div class="text-center">
+            <small class="text-center">@message.GetFormattedTimeStamp()</small>
+        </div>
+    </div>
+}

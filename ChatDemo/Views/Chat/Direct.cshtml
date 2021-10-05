@@ -1,0 +1,46 @@
+﻿
+@using ChatDemo.Entities
+@using System.Security.Claims
+
+@model Chat
+
+@{
+    ViewData["Title"] = "Direct chat";
+    string signInUserName = User.FindFirstValue(ClaimTypes.Name);
+}
+
+<div id="messages-container-wrapper" style="overflow-y: auto; height: 100%;">
+    <div class="container" style="height: 100%;">
+        <div class="row" style="margin-top: auto; height: 100%;">
+            <div class="col d-flex">
+                <div id="messages-container" class="d-flex flex-fill flex-column justify-content-end">
+                    @await Html.PartialAsync("_ChatMessagesPartial", Model.Messages)
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<hr style="width: 100%; margin-top: 0;" />
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <section>
+                <form id="send-message-form"
+                      asp-action="SendMessage"
+                      method="post"
+                      onsubmit="onSendMessage(event)">
+                    <div class="row g-3 mb-3">
+                        <input type="hidden" name="chatId" asp-for="Id" />
+                        <div class="col">
+                            <input type="text" name="text" class="form-control" id="message-text">
+                        </div>
+                        <div class="col-auto">
+                            <button type="submit" class="btn btn-primary">Send</button>
+                        </div>
+                    </div>
+                </form>
+                <div asp-validation-summary="All" class="text-danger"></div>
+            </section>
+        </div>
+    </div>
+</div>
