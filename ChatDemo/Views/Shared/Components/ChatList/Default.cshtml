@@ -1,0 +1,23 @@
+﻿
+@using ChatDemo.Entities;
+
+@model ICollection<Chat>
+
+<section>
+    <ul>
+        @foreach (var chat in Model)
+        {
+            <li>
+                <i></i>
+                <input type="hidden" id="user-status" value="@chat.Id" />
+                <a asp-controller="Chat"
+                   asp-action="Direct"
+                   asp-route-id="@chat.Id">
+                    <b>
+                        @chat.Name
+                    </b>
+                </a>
+            </li>
+        }
+    </ul>
+</section>

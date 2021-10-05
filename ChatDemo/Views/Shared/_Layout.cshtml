@@ -34,10 +34,17 @@
             </div>
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
+
+    <div class="container-wrapper">
+        <main class="d-flex flex-fill flex-column">
             @RenderBody()
         </main>
+        @if (User.Identity.IsAuthenticated)
+        {
+        <nav class="navbar container-side align-items-lg-start">
+            @await Component.InvokeAsync("ChatList")
+        </nav>
+        }
     </div>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
