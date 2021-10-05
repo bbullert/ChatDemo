@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChatDemo.Entities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace ChatDemo.Models
 {
     public class UserSearchResult
     {
-        public User User { get; set; }
+        public AppUser User { get; set; }
 
         public FriendRequestStatus FriendRequestStatus { get; set; }
     }
