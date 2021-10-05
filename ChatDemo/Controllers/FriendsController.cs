@@ -15,11 +15,14 @@ namespace ChatDemo.Controllers
     public class FriendsController : Controller
     {
         private readonly IAppUserRepository userRepository;
+        private readonly IChatRepository chatRepository;
 
         public FriendsController(
-            IAppUserRepository userRepository)
+            IAppUserRepository userRepository,
+            IChatRepository chatRepository)
         {
             this.userRepository = userRepository;
+            this.chatRepository = chatRepository;
         }
 
         public IActionResult Index()
@@ -101,6 +104,7 @@ namespace ChatDemo.Controllers
             var user = userRepository.GetUserById(userId);
 
             await userRepository.AcceptFriendRequest(signedInUser, user);
+            await chatRepository.CreatePrivateChat(signedInUser, user);
 
             return Ok();
         }
@@ -124,6 +128,7 @@ namespace ChatDemo.Controllers
             var signedInUser = userRepository.GetUserById(signedInUserId);
             var user = userRepository.GetUserById(userId);
 
+            await chatRepository.RemovePrivateChat(signedInUser, user);
             await userRepository.RemoveFriend(signedInUser, user);
 
             return Ok();

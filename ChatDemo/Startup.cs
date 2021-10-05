@@ -30,6 +30,7 @@ namespace ChatDemo
         {
             services.AddSingleton<AppIdentityErrorDescriber>();
             services.AddScoped<IAppUserRepository, AppUserRepository>();
+            services.AddScoped<IChatRepository, ChatRepository>();
 
             services.AddDbContext<AppDbContext>(options => {
                 options.UseSqlServer(Configuration.GetConnectionString("Default"));
