@@ -49,6 +49,8 @@ namespace ChatDemo
             .AddEntityFrameworkStores<AppDbContext>()
             .AddDefaultTokenProviders();
 
+            services.AddScoped<IAppUserRepository, AppUserRepository>();
+
             services.AddControllersWithViews();
         }
 
